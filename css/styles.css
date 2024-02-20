@@ -4,7 +4,6 @@
     --grid-gap: 10px;
 }
 
-
 * {
     box-sizing: border-box;
 }
@@ -19,23 +18,67 @@ body{
     font-size: 2rem;
     color: white;
 }
+
+img{
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CALCULATOR */
 .calculator{
     margin: 1rem;
     width: calc(4 * var(--btn-size) + 3 * var(--grid-gap) + 2 * var(--body-padding));
     border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);
     overflow: hidden;
 }
 
+/* CALCULATOR HEAD */
+
+.calculator__head{
+    padding: 1rem 2rem;
+    background: #0a141f;
+}
+
+/* number */
+
+.calculator__head__number{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 5rem;
+    font-weight: 700;
+}
+
+/* LINE */
+
+.line{
+    background: white;
+    height: 5px;
+}
+
+/* CALCULATOR BODY */
 .calculator__body{
-    padding: var(--body-padding);
+    padding: var(--body-padding) ;
+    padding-top: 0;
     background: #0d1b2a;
 }
 
-/* BUTTON */
+/* nav */
+
+.calculator__body__nav{
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* buttons */
 .button{
-    background: tomato;
+    cursor: pointer;
     border-radius: 8px;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,19 +86,37 @@ body{
     font-size: 3rem;
 }
 
+.delete{
+    cursor: pointer;
+    width: var(--btn-size);
+}
+
 .button--grey{
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.button--grey:hover{
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
 }
 
 .button--orange{
-    background: #fca311;
+    background: rgba(252, 163, 17, 0.9);
+}
+
+.button--orange:hover{
+    background: rgba(252, 163, 17, 1);
 }
 
 .button--lightorange{
     background: rgba(252, 163, 17, 0.3);
 }
 
-/* GRID */
+.button--lightorange:hover{
+    background: rgba(252, 163, 17, 0.7);
+}
+
+/* button grid */
 .calculator__body__buttons{
     display: grid;
     grid-template-columns: repeat(4, var(--btn-size));
