@@ -8,18 +8,24 @@ html{
 
 body{
     margin: 0;
+    font-family: "Roboto Mono", monospace;
 }
 
 .button{
-
     background: tomato;
+    border-radius: 8px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
 }
 
 
 .calculator__body__buttons{
     display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(5, 50px);
+    grid-template-columns: repeat(4, 75px);
+    grid-template-rows: repeat(5, 75px);
 
     grid-template-areas: 
     "clear clear clear divide"
