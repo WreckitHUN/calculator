@@ -45,6 +45,16 @@ img{
     background: #0a141f;
 }
 
+/* track */
+
+.calculator__head__track{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 3rem;
+    font-weight: 300;
+    padding-bottom: 2rem;
+}
+
 /* number */
 
 .calculator__head__number{
