@@ -1,3 +1,10 @@
+:root{
+    --body-padding: 20px;
+    --btn-size: 75px;
+    --grid-gap: 10px;
+}
+
+
 * {
     box-sizing: border-box;
 }
@@ -9,8 +16,22 @@ html{
 body{
     margin: 0;
     font-family: "Roboto Mono", monospace;
+    font-size: 2rem;
+    color: white;
+}
+.calculator{
+    margin: 1rem;
+    width: calc(4 * var(--btn-size) + 3 * var(--grid-gap) + 2 * var(--body-padding));
+    border-radius: 12px;
+    overflow: hidden;
 }
 
+.calculator__body{
+    padding: var(--body-padding);
+    background: #0d1b2a;
+}
+
+/* BUTTON */
 .button{
     background: tomato;
     border-radius: 8px;
@@ -18,14 +39,27 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-weight: 700;
+    font-size: 3rem;
 }
 
+.button--grey{
+    background: rgba(255, 255, 255, 0.3);
+}
 
+.button--orange{
+    background: #fca311;
+}
+
+.button--lightorange{
+    background: rgba(252, 163, 17, 0.3);
+}
+
+/* GRID */
 .calculator__body__buttons{
     display: grid;
-    grid-template-columns: repeat(4, 75px);
-    grid-template-rows: repeat(5, 75px);
+    grid-template-columns: repeat(4, var(--btn-size));
+    grid-template-rows: repeat(5, var(--btn-size));
 
     grid-template-areas: 
     "clear clear clear divide"
@@ -33,7 +67,7 @@ body{
     "b4 b5 b6 subtract"
     "b1 b2 b3 add"
     "minus b0 decimal equal";
-    gap: 10px;
+    gap: var(--grid-gap);
 }
 
 #clear{
