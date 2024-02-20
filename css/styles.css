@@ -26,11 +26,62 @@ body{
     "b7 b8 b9 multiply"
     "b4 b5 b6 subtract"
     "b1 b2 b3 add"
-    "minus b0 decimal equal"
-    ;
+    "minus b0 decimal equal";
     gap: 10px;
 }
 
 #clear{
     grid-area: clear;
 }
+#divide {
+    grid-area: divide;
+}
+#b7 {
+    grid-area: b7;
+}
+  #b8 {
+    grid-area: b8;
+}
+#b9 {
+    grid-area: b9;
+}
+#multiply {
+    grid-area: multiply;
+}
+#b4 {
+    grid-area: b4;
+}
+#b5 {
+    grid-area: b5;
+}
+#b6 {
+    grid-area: b6;
+}
+#subtract {
+    grid-area: subtract;
+}
+#b1 {
+    grid-area: b1;
+}
+#b2 {
+    grid-area: b2;
+}
+#b3 {
+    grid-area: b3;
+}
+#add {
+    grid-area: add;
+}
+#minus {
+    grid-area: minus;
+}
+#b0 {
+    grid-area: b0;
+}
+#decimal {
+    grid-area: decimal;
+}
+#equal {
+    grid-area: equal;
+}
+  
