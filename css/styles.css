@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin: 0;
+}
+
+.button{
+
+    background: tomato;
+}
+
+
+.calculator__body__buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(5, 50px);
+
+    grid-template-areas: 
+    "clear clear clear divide"
+    "b7 b8 b9 multiply"
+    "b4 b5 b6 subtract"
+    "b1 b2 b3 add"
+    "minus b0 decimal equal"
+    ;
+    gap: 10px;
+}
+
+#clear{
+    grid-area: clear;
+}
