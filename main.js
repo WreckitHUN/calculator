@@ -6,8 +6,11 @@ const btnClear = document.querySelector("#clear");
 const numbers = document.querySelectorAll(".number");
 const operators = document.querySelectorAll(".operator");
 const equal = document.querySelector("#equal");
+const minus = document.querySelector("#minus");
+const decimal = document.querySelector("#decimal");
 
 let number1Assigned = false;
+let equalPressed = false;
 
 let memoryNumber = "";
 
@@ -19,9 +22,14 @@ let result = "";
 /* Functions for numbers 0 -> 9 */ 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
-    if (numberDisplay.textContent.length !== 9){
-        memoryNumber += number.textContent;
-        numberDisplay.textContent = memoryNumber;
+        if  (equalPressed){
+            reset();
+            track.textContent = "";
+            equalPressed = false;
+        }
+        if (numberDisplay.textContent.length !== 9){
+            memoryNumber += number.textContent;
+            numberDisplay.textContent = memoryNumber;
     }
     })
 });
@@ -31,6 +39,7 @@ operators.forEach((ope) =>{
     ope.addEventListener("click", () => {
         /* First time to click on operator */
         if (!number1Assigned && memoryNumber !== ""){
+            equalPressed = false;
             number1 = memoryNumber;
             operator = ope.textContent;
             memoryNumber = "";
@@ -41,6 +50,7 @@ operators.forEach((ope) =>{
 
         /* Second time to click on operator after a number */
         if (number1Assigned && memoryNumber !== ""){
+            equalPressed = false;
             number2 = memoryNumber;
             memoryNumber = "";
             result = operate(number1, number2, operator);
@@ -56,6 +66,7 @@ operators.forEach((ope) =>{
 /* Function for Equal */
 equal.addEventListener("click", () => {
     if (number1Assigned && memoryNumber !== ""){
+        equalPressed = true;
         number2 = memoryNumber;
         result = operate(number1, number2, operator);
         numberDisplay.textContent = result;
@@ -65,9 +76,33 @@ equal.addEventListener("click", () => {
         number2 = "";
         operator = "";
         result = "";
+        console.log(memoryNumber);
         return;
     }
     
+})
+
+/* Function for minus */
+minus.addEventListener("click", () => {
+    if  (equalPressed){
+        reset();
+        track.textContent = "";
+        equalPressed = false;
+    }
+    let isMinus = memoryNumber.charAt(0) === "-";
+    memoryNumber = isMinus ? memoryNumber.slice(1) : `-${memoryNumber}`;
+    numberDisplay.textContent = memoryNumber;
+})
+
+/* Function for decimal */
+decimal.addEventListener("click", () => {
+    if (memoryNumber !== ""){
+        if (!memoryNumber.includes(".")){
+            memoryNumber = memoryNumber + ".";
+            numberDisplay.textContent = memoryNumber;
+        }
+        
+    }
 })
 
 /* Function for Clear btn */
@@ -79,7 +114,7 @@ btnClear.addEventListener("click", () => {
 
 /* Function for Delete btn */
 btnDelete.addEventListener("click", () => {
-    if (memoryNumber !== ""){
+    if (!equalPressed){
         memoryNumber = memoryNumber.slice(0, memoryNumber.length - 1);
         numberDisplay.textContent = memoryNumber;
     }
