@@ -53,9 +53,10 @@ img{
 /* track */
 
 .calculator__head__track{
+    height: 23px;
     display: flex;
     justify-content: flex-end;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 300;
     padding-bottom: 2rem;
 }
@@ -63,9 +64,10 @@ img{
 /* number */
 
 .calculator__head__number{
+    padding-top: 20px;
     display: flex;
     justify-content: flex-end;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
 }
 
@@ -98,7 +100,7 @@ img{
     justify-content: center;
     align-items: center;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .delete{
